@@ -1,0 +1,23 @@
+.form__input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    background-color: rgba(138, 44, 226, 0.1);
+    box-sizing: border-box;
+    height: 40px;
+    cursor: pointer;
+}
+
+.form__input:focus {
+    outline: none;
+    background-color: #fff;
+}
+
+.file {
+    display: none;
+}
+
+.text {
+    height: 90px;
+}

@@ -1,0 +1,13 @@
+.form__submit {
+    margin: 35px auto 0;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: #fff;
+    box-sizing: border-box;
+    height: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}

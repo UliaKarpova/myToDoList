@@ -1,0 +1,12 @@
+.list__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 25px;
+    height: 70px;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    background-color: rgba(138, 43, 226, .1);
+    margin-top: 25px;
+}
