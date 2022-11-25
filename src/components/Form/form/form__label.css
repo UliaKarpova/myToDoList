@@ -1,0 +1,14 @@
+.form__label {
+    display: block;
+    font-size: 18px;
+    color: blueviolet;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.label-file {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    align-items: center;
+}

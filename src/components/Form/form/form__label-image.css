@@ -1,0 +1,8 @@
+.form__label-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-left: 20px;
+    margin-right: 20px;
+}
