@@ -1,55 +1,56 @@
-import { useState } from'react';
+import daysjs from 'dayjs';
+import { useEffect } from 'react';
 
 import './Element.css';
-
-import Form from '../Form/Form';
 
 import check from '../../images/check.png';
 import del from '../../images/del.png';
 
-function Element({ item, onClickCheck, onClickDel, onSubmit }) {
+function Element({ item, onClickCheck, deleteItem, getItem, onEdit }) {
 
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const todayDate = daysjs();
+  const itemDate = daysjs(item.date);
+
+  const bool = todayDate.isAfter(itemDate);
+
+
+
+
+
+  console.log(itemDate);
+  console.log(todayDate);
 
   const data = item.date?.split('-').reverse().join('.');
 
-
-  function closeForm() {
-    setIsFormOpen(false);  
-  }
-
-  function handleClick() {
-    console.log('I am here');
-    setIsFormOpen(true);
-  }
-
-  function handleClickCheck() {
-    onClickCheck(item); 
+  function toggleDone(event) {
+    const element = event.currentTarget;
+    const item = element.closest('.item');
+    item.classList.toggle('done');
   }
 
   function handleClickDel() {
-    onClickDel(item);
+    deleteItem(item);
+  }
+
+  function handleEdit() {
+    getItem(item);
+    onEdit();
   }
 
   return (
-    <>
+    <li className={bool ? 'item expired' : 'item'} >
       <button className='item__to-view'
-      onClick={handleClick}>
+      onClick={handleEdit}>
         <h3 className='item__title'>{item.title}</h3>
         <p className='item__date'>{data}</p>
       </button>
       <img className='item__image' 
-      onClick={handleClickCheck}
+      onClick={toggleDone}
       src={check} alt='Задача выполнена' />
       <img className='item__image'
       onClick={handleClickDel}
       src={del} alt='Удалить задачу' />
-
-    {isFormOpen ? (
-    <Form onSubmit={onSubmit} item={item} closeForm={closeForm} />
-    ) : ''
-}
-    </>
+    </li>
   );
 }
 

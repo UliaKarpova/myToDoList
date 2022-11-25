@@ -1,4 +1,4 @@
-.list__item {
+.item {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -9,4 +9,15 @@
     border-radius: 10px;
     background-color: rgba(138, 43, 226, .1);
     margin-top: 25px;
+}
+
+.expired {
+    border: 1px solid red;
+    background-color: rgba(255, 0, 0, .3);
+
+}
+
+.done {
+    border: 1px solid green;
+    background-color: rgba(0, 128, 0, .3);
 }

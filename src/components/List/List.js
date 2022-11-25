@@ -1,20 +1,17 @@
 import './List.css';
 import Element from '../Element/Element';
 
-function List({ items, onClickCheck, onClickCDel, onSubmit }) {
+function List({ items, deleteItem, getItem, onEdit }) {
 
-  const listElements = items.map((item, index) => {
-    console.log(index);
+  const listElements = items.map((item) => {
+    console.log(item.itemId);
     return (
-      <li key={index} 
-      className='list__item'>
-          <Element 
+          <Element key={item.itemId}
           item={item}
-          onClickCheck={onClickCheck}
-          onClickDel={onClickCDel}
-          onSubmit={onSubmit}
+          deleteItem={deleteItem}
+          onEdit={onEdit}
+          getItem={getItem}
           />
-      </li>
   )
   })
 

@@ -1,0 +1,13 @@
+.form__exit {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    background-image: url(../../../images/del.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

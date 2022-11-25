@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import './Form.css';
 import clip from '../../images/clip.png';
 
-function Form({ onSubmit, item, closeForm }) {
+function Form({ onSubmit, item, updateItem, closeForm }) {
+  console.log(onSubmit);
+  console.log(item);
+  console.log(updateItem);
 
   const [values, setValues] = useState({});
-  console.log(values);
 
   function handleChange(event) {
       const target = event.target;
@@ -18,9 +20,10 @@ function Form({ onSubmit, item, closeForm }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    onSubmit(values);
-    if (closeForm) {
-      closeForm();
+    if (!item) {
+      onSubmit(values);
+    } else {
+      updateItem(item, values);
     }
   }
 
@@ -28,6 +31,7 @@ function Form({ onSubmit, item, closeForm }) {
     <div className='form__container'>
       <form className='form'
       onSubmit={handleSubmit}>
+        <button className='form__exit' type='button' onClick={closeForm}></button>
         <h2 className='form__title'>{!item ? 'Добавить задачу' : 'Редактировать'}</h2>
         <label htmlFor='title' 
         className='form__label'>Заголовок</label>
@@ -58,13 +62,14 @@ function Form({ onSubmit, item, closeForm }) {
 
         <label htmlFor='file' className='form__label label-file'>
           <input onChange={handleChange}
-          defaultValue={item?.file || ''}
+          defaultValue=''
           name='file' 
           id='file' 
           type='file' 
           className='file' />
           <span className='form__label-text'>Прикрепить файл</span>
           <img src={clip} alt='Скрепка' className='form__label-image'/>
+          <span className='form__label-text'>{item?.file || values.file || ''}</span>
         </label>
 
         <button type='submit' className='form__submit'>&#10004; &emsp; {!item ? 'Добавить' : 'Изменить'}</button>
